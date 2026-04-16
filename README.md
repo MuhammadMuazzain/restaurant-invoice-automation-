@@ -1,9 +1,11 @@
 # Invoice Processor (Food Distributor Invoices → Google Sheets + Insights)
 
-An automated workflow to process weekly distributor food invoices and turn them into structured data + ongoing reporting:
+An automated workflow to process weekly distributor food invoices and turn them into structured data + ongoing reporting.
+
+**Current status**: working v1 pipeline (Drive/folder → Claude/OpenAI → normalize → Google Sheets → reports). Some cover-letter features (confidence scoring, dashboard tab, Airtable) are listed below as planned.
 
 - **Ingestion**: process PDFs from `data/invoices/` and optionally auto-download new PDFs from a **Google Drive folder**
-- **Extraction (Claude preferred)**: extract **item names, quantities/units, unit price, line totals**, plus invoice metadata
+- **Extraction (Claude preferred)**: extract **item names, quantities/units, unit price, line totals**, plus invoice-level fields (vendor name, invoice number/date, subtotal/tax/total when present)
 - **Normalization**: map distributor naming variations to consistent item names (`data/item_aliases.csv`)
 - **Storage (“database”)**: append line-items into **Google Sheets** with **dedupe**
 - **Insights**: generate local CSV reports for:
@@ -83,5 +85,12 @@ python -m app.main_financial
 
 - Add new distributor naming variants into `data/item_aliases.csv` over time.
 - Dedupe is handled via a stable line-item key (invoice + date + vendor + line index + raw item name).
+
+## Planned (to match full client scope)
+
+- **Extraction confidence**: label each line (or invoice) as high/medium/low and flag low-confidence values for review before writing to Sheets.
+- **Google Sheets dashboard tab**: summary view inside the spreadsheet (cost trends, usage overview, key metrics).
+- **Airtable option**: optional storage backend in addition to Google Sheets.
+- **Richer schema**: optional fields like payment terms/due date, categories, and vendor contact details (see `output.json` for a draft schema).
 
 made with 🔥 by Muhammad Muazzain
