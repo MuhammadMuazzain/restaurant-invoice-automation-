@@ -1,0 +1,51 @@
+{
+    "invoice_number": "string",
+    "invoice_date": "YYYY-MM-DD",
+    "invoice_type": "incoming | outgoing",
+    "issuer": {
+      "name": "string",
+      "address": "string",
+      "phone": "string",
+      "email": "string"
+    },
+    "recipient": {
+      "name": "string",
+      "address": "string",
+      "phone": "string",
+      "email": "string"
+    },
+    "vendor": {
+      "name": "string",
+      "address": "string",
+      "phone": "string",
+      "email": "string"
+    },
+    "invoice_items": [
+      {
+        "line_number": "integer",
+        "raw_description": "string (exactly as written on invoice)",
+        "normalized_name": "string (e.g., Chicken Breast, Iceberg Lettuce)",
+        "category": "string (produce | protein | dairy | dry goods | beverage | other)",
+        "quantity": "number",
+        "unit": "string (cases | lbs | units | each | oz | kg)",
+        "unit_price": "number",
+        "line_total": "number",
+        "description": "string"
+      }
+    ],
+    "subtotal": "number",
+    "tax_rate": "number (percentage)",
+    "tax": "number",
+    "total": "number",
+    "currency": "string (default: USD)",
+    "payment_due_date": "YYYY-MM-DD",
+    "payment_method": "string (check | ACH | credit | net30 | other)",
+    "terms": "string",
+    "notes": "string (any special instructions or comments on invoice)",
+    "processing_metadata": {
+      "processed_at": "ISO 8601 timestamp",
+      "source_file": "string (original PDF filename)",
+      "extraction_confidence": "high | medium | low",
+      "page_count": "integer"
+    }
+  }
