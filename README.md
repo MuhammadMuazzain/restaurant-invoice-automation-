@@ -86,11 +86,4 @@ python -m app.main_financial
 - Add new distributor naming variants into `data/item_aliases.csv` over time.
 - Dedupe is handled via a stable line-item key (invoice + date + vendor + line index + raw item name).
 
-## Planned (to match full client scope)
-
-- **Extraction confidence**: label each line (or invoice) as high/medium/low and flag low-confidence values for review before writing to Sheets.
-- **Google Sheets dashboard tab**: summary view inside the spreadsheet (cost trends, usage overview, key metrics).
-- **Airtable option**: optional storage backend in addition to Google Sheets.
-- **Richer schema**: optional fields like payment terms/due date, categories, and vendor contact details (see `output.json` for a draft schema).
-
 made with 🔥 by Muhammad Muazzain
