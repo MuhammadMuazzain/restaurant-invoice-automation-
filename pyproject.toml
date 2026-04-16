@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "invoice-processing"
+version = "0.1.0"
+description = ""
+authors = ["ruizguille <guillermo@codeawake.com>"]
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pdf2image = "^1.17.0"
+pydantic = "^2.8.2"
+pydantic-settings = "^2.3.4"
+openai = "^1.36.1"
+tqdm = "^4.66.4"
+pandas = "^2.2.2"
+xlsxwriter = "^3.2.0"
+anthropic = "^0.40.0"
+gspread = "^6.1.4"
+google-auth = "^2.33.0"
+google-api-python-client = "^2.144.0"
+python-dateutil = "^2.9.0.post0"
+rapidfuzz = "^3.9.6"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+process-invoices = "app.main_financial:main"
+process-food-invoices = "app.main_food:main"
